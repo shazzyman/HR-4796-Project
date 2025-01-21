@@ -1,5 +1,38 @@
 #!/usr/bin/env python
 
+"""
+This Python script models the forward calculation of flux from debris disks around stars by leveraging
+advanced computational techniques and scientific principles. It incorporates multiple functions to simulate 
+dust properties, scattering phase functions, flux calculations, and 3D to 2D disk projections. The key 
+features and components include:
+
+1. **Dust Size and Distribution**:
+   - Generates a log-spaced array of dust grain sizes and calculates their normalized size distribution 
+     based on a power-law exponent.
+
+2. **Scattering Phase Functions**:
+   - Uses lookup tables to compute scattering phase functions for different dust grain sizes and 
+     compositions.
+   - Supports Mie, Porous, and Agglomerate scattering models with appropriate refractive index 
+     tables.
+
+3. **Flux Calculation**:
+   - Computes the luminosity of the disk by considering dust properties, scattering phase functions, 
+     and distances from the star.
+   - Implements an efficient voxel-based approach using numba for speed optimization.
+
+4. **3D to 2D Disk Projection**:
+   - Projects 3D disk properties into a 2D image using positional and flux information.
+   - Averages the projected flux over spatial regions to match observational constraints.
+
+5. **Forward Model Integration**:
+   - Combines all calculations to produce synthetic disk flux profiles for various dust parameters.
+   - Supports integration with external observational data for model fitting.
+
+6. **Optimization and Performance**:
+   - Accelerates computations using numba's JIT compilation for critical functions.
+   - Utilizes HDF5 files for efficient I/O operations on large lookup tables.
+"""
 # Imports
 import h5py
 import numpy as np
