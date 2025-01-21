@@ -1,6 +1,6 @@
 ```python
 """
-This Python script analyzes the spectral properties of debris disks around stars, focusing on 
+This Python script analyzes the 10 spectral properties of debris disks around stars, focusing on 
 dust grain modeling, phase angle calculations, and comparison with observational data. It integrates 
 several astrophysical tools and libraries, allowing for advanced analysis and visualization. Key components include:
 
