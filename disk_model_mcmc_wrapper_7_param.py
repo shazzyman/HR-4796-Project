@@ -1,5 +1,15 @@
 #!/usr/bin/env python
+"""
+This Python script is designed to perform an MCMC (Markov Chain Monte Carlo) analysis of a 7 paramteer dust disk model, leveraging MPI parallelization for 
+efficient computation on Linux systems. It uses various libraries like emcee for MCMC sampling, mpi4py for distributed computing, and numba to optimize
+numerical calculations. The script calculates the phase angles, particle distributions, and fluxes for a dust disk, given physical parameters and observational 
+data. It includes custom definitions for dust refractive indices and stellar modeling, allowing precise computation of scattering properties and phase functions.
 
+The script reads precomputed scattering data from HDF5 files and uses the parameters to simulate the disk's luminosity and flux based on user-defined scattering 
+types (Mie, Porous, or Agglomerate). It initializes MCMC walkers to explore the parameter space, saving posterior distributions to HDF5 files for further analysis. 
+MPI parallelization, enabled with the schwimmbad package, allows the script to scale across multiple processors, making it suitable for high-performance Linux clusters. 
+The resulting output includes fitted parameters and data files, which can be used for generating synthetic spectra and studying debris disks in astrophysics.
+"""
 # Imports
 import sys
 import os
