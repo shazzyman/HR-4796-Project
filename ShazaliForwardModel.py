@@ -1,3 +1,49 @@
+"""
+This Python script models and visualizes the spectral properties of debris disks around stars, focusing on
+dust grain modeling, disk surface density, phase angle calculations, and comparison with observational data.
+It is equipped with advanced features for computation, visualization, and data handling. Key highlights include:
+
+1. **Imports and Dependencies**:
+   - Utilizes scientific libraries such as `numpy`, `scipy`, `matplotlib`, and `numba` for high-performance computations.
+   - Includes `astropy` for handling astronomical data and FITS files.
+   - Employs user-defined modules for disk modeling, aperture calculations, and shared constants.
+
+2. **Phase Angle and Surface Density Calculations**:
+   - Implements the function `calc_phase_ang_surf_dens` to compute 3D arrays of particle surface densities and phase angles.
+   - Differentiates between disk and halo regions using user-defined parameters (e.g., `dpar.rmax`, `dpar.xsigma`).
+
+3. **Dust Composition and Optical Properties**:
+   - Supports multiple chemical types such as Astrosilicate, Amorphous Carbon, Water Ice, Tholins, Troilite, and Iron.
+   - Uses Bruggeman's mixing rule to calculate optical properties for porous spheres.
+   - Interpolates refractive indices across wavelengths for accurate scattering and absorption calculations.
+
+4. **Disk Modeling and Forward Calculation**:
+   - Leverages the `disk_model_fun` function to compute disk flux, density distributions, and wavelength-dependent properties.
+   - Handles various scattering models (e.g., Mie, Porous) and disk geometries.
+
+5. **Visualization**:
+   - Generates plots of disk flux and images using `matplotlib`, with customizable color scales and labels.
+   - Displays the 2D projection of the disk with rotation and scaling for comparison with observations.
+
+6. **Data Handling and Export**:
+   - Reads observational data from CSV files and writes modeled disk flux to FITS files for further analysis.
+   - Annotates FITS headers with relevant model parameters (e.g., maximum grain size, scattering type).
+
+7. **Custom Aperture Calculations**:
+   - Implements `square_aperture_calcs` to compute median flux values within user-specified apertures at different wavelengths.
+   - Handles apertures matching telescope specifications (e.g., NICMOS, STIS).
+
+8. **Flexibility and Modularity**:
+   - Supports modular chemical composition calculations through `calc_m_val`, allowing easy customization.
+   - Accommodates different disk geometries, stellar properties, and scattering types via parameter adjustments.
+
+9. **Integration and Scalability**:
+   - Designed for seamless integration with other astrophysical data analysis workflows.
+   - Optimized for performance using `numba` and efficient data structures for large-scale computations.
+
+"""
+
+
 # Imports
 import numpy as np
 import numba as nb
