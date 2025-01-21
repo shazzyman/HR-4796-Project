@@ -1,5 +1,32 @@
 #!/usr/bin/env python
 
+"""
+This Python script models debris disks around stars, combining astrophysical calculations and computational tools.
+It uses libraries like numpy, scipy, emcee (for MCMC sampling), numba (for performance optimization), and MPI for
+parallel processing. The key components and features include:
+
+1. **Disk Model Calculations**:
+   - Defines 3D arrays to calculate physical properties like particle number density, phase angles, and distances.
+   - Incorporates user-defined disk and stellar parameters, such as temperature, mass, and luminosity.
+
+2. **Bayesian Parameter Estimation**:
+   - Employs MCMC techniques (via emcee) to explore parameter spaces and fit disk properties to observed data.
+   - Includes custom prior and likelihood functions for parameter sampling, ensuring physical constraints.
+
+3. **Optical Properties with Bruggeman Mixing**:
+   - Implements Bruggeman's rule to calculate optical constants for porous spheres using refractive indices.
+
+4. **Optimization and Parallelism**:
+   - Accelerates calculations using numba's JIT compilation and parallelizes sampling via MPI and MPIPool.
+
+5. **Data Handling and Reproducibility**:
+   - Reads disk data from external files and saves intermediate results using HDF5 for further analysis.
+   - Provides options to resume MCMC calculations or generate plots from saved results.
+
+This modular script is designed to support iterative modeling and analysis of debris disks, making it adaptable for
+different systems or extending its application to other astrophysical simulations.
+"""
+
 # Imports
 import sys
 import os
