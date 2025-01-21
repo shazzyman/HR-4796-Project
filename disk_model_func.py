@@ -1,5 +1,15 @@
 #!/usr/bin/env python
 
+"""
+This Python script is designed to model the flux of a dust disk by calculating its physical properties and projecting them into a 2D image. 
+It includes functions for generating dust size distributions, computing scattering properties (phase functions and cross-sections), and simulating the flux
+emitted by each voxel in the disk. The script relies on a combination of precomputed scattering tables and user-defined parameters (from the disk_parameters module) 
+to perform detailed calculations. It uses JIT-compiled functions (via Numba) to optimize performance for iterative computations over large arrays. 
+The core of the script involves creating a 3D luminosity distribution of the disk and projecting it into a 2D plane for further analysis. 
+Additionally, it includes functionality for assembling a list of parameters based on disk properties for input into further models or fitting processes. This code is particularly 
+useful for astrophysical modeling of debris disks and for simulating how they appear in observational data.
+"""
+
 # Imports
 import h5py
 import numpy as np
