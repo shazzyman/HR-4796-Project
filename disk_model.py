@@ -1,4 +1,45 @@
 #!/usr/bin/env python
+"""
+This Python script models debris disks around stars, simulating their physical and scattering properties. 
+It includes advanced calculations for dust grain size distributions, phase functions, flux emission, 
+and disk projections. The script is designed for astrophysical research and analysis. 
+
+**Key Features**:
+
+1. **Dust Size and Distribution**:
+   - `dust_sizes`: Generates log-spaced dust grain sizes and calculates their normalized distribution using a power-law exponent.
+
+2. **Phase Function Calculation**:
+   - `get_phase`: Computes scattering phase functions for different grain sizes and wavelengths.
+   - Supports multiple dust compositions such as Astrosilicate, Amorphous Carbon, Water Ice, Tholins, Troilite, and Iron.
+   - Utilizes high-k tables for metallic components, enabling efficient calculations for materials with large imaginary refractive indices.
+
+3. **Flux Calculation**:
+   - `calc_flux`: Computes the flux emitted by each voxel in the 3D disk model.
+   - Considers scattering phase functions, grain size distributions, and distances to the star.
+
+4. **Projection of Disk**:
+   - `project_disk`: Projects 3D disk data into 2D images for visualization and comparison with observations.
+   - Handles pixel-level transformations to accurately map the disk onto the image plane.
+
+5. **Forward Model Integration**:
+   - `disk_model_fun`: Integrates all calculations into a forward model for disk flux and density distributions.
+   - Computes wavelength-dependent fluxes and creates 2D projections of the modeled disk.
+   - Accounts for different scattering types (e.g., Mie, Porous, Agglomerate) and material compositions.
+
+6. **High Performance**:
+   - Optimized with `numba` for efficient computation of phase functions, fluxes, and projections.
+   - Uses HDF5 for reading large data tables of scattering parameters, ensuring scalability.
+
+7. **Modular Design**:
+   - Modular functions enable customization of parameters like grain size range, scattering type, and material composition.
+   - Extensible for new dust compositions or scattering models.
+
+8. **Disk Parameters and Outputs**:
+   - Outputs include 3D luminosity distributions (`ld`), 2D projections (`ldp`), spatial coordinates (`lx`, `ly`), 
+     and the flux model at specified separations (`fluxmodel`).
+   - Scaled images and average fluxes over user-defined apertures can be generated.
+"""
 
 # Imports
 import h5py
