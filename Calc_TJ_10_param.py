@@ -1,3 +1,42 @@
+```python
+"""
+This Python script analyzes the spectral properties of debris disks around stars, focusing on 
+dust grain modeling, phase angle calculations, and comparison with observational data. It integrates 
+several astrophysical tools and libraries, allowing for advanced analysis and visualization. Key components include:
+
+1. **Imports and Dependencies**:
+   - Utilizes scientific libraries such as `numpy`, `matplotlib`, and `scipy` for computation and visualization.
+   - Leverages `numba` for performance optimization and `astropy` for handling astronomical data.
+   - Includes user-defined modules for disk parameters, aperture calculations, and stellar modeling.
+
+2. **Dust Grain Modeling**:
+   - Defines refractive indices for multiple dust components (e.g., astrosilicates, amorphous carbon, water ice).
+   - Applies Bruggeman mixing rules for porous spheres to calculate composite optical properties.
+   - Handles porosity effects and interpolates refractive index data for specific wavelengths.
+
+3. **Phase Angle Calculations**:
+   - Computes phase angles and density distributions across 3D disks using a voxel-based approach.
+   - Differentiates between disk and halo regions based on geometric and density thresholds.
+
+4. **Flux and Likelihood Calculations**:
+   - Implements a forward model to compute disk flux using Mie or agglomerate scattering models.
+   - Evaluates the likelihood function (`lnlike`) for fitting model fluxes to observational data.
+   - Incorporates observational uncertainties into the likelihood evaluation.
+
+5. **Visualization**:
+   - Plots the modeled and observed spectra with error bars, allowing visual comparison.
+   - Highlights key spectral features and evaluates model accuracy over multiple test values.
+
+6. **Optimization and Scalability**:
+   - Accelerates critical computations with `numba`-optimized functions for phase angle and flux calculations.
+   - Uses efficient file I/O via HDF5 for reading optical constants and saving results.
+
+7. **Modular Design**:
+   - Separates functionality into reusable components such as `lnlike`, `calc_phase_angle`, and refractive index calculations.
+   - Supports customization for specific disk systems by modifying parameters like stellar properties, disk geometry, and dust composition.
+"""
+```
+
 import numpy as np
 from astropy.nddata.blocks import block_reduce
 from scipy import interpolate
