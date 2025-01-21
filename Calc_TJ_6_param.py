@@ -34,8 +34,6 @@ several astrophysical tools and libraries, allowing for advanced analysis and vi
 7. **Modular Design**:
    - Separates functionality into reusable components such as `lnlike`, `calc_phase_angle`, and refractive index calculations.
    - Supports customization for specific disk systems by modifying parameters like stellar properties, disk geometry, and dust composition.
-
-This script is a robust framework for studying debris disks, enabling iterative model refinement and integration with observational datasets. Its modularity and computational efficiency make it suitable for a wide range of astrophysical investigations.
 """
 ```
 
