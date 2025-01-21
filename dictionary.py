@@ -1,3 +1,44 @@
+"""
+This Python script creates a dictionary the refractive indices and densities for various dust grain compositions
+commonly found in astrophysical debris disks. The main features include:
+
+1. **Wavelength Range and Parameters**:
+   - Defines the wavelength range (`wlo`, `whi`) and grain size parameters (`amax`, `aexp`) for calculations.
+   - Supports customization for specific disks by adjusting the wavelength range and number of wavelengths.
+
+2. **Bruggeman's Mixing Rule**:
+   - Implements the `bruggeman2` function to compute the effective refractive index for porous materials.
+   - Combines two components with specified refractive indices to simulate porous grain properties.
+
+3. **Chemical Composition Dictionary**:
+   - Provides a dictionary (`nk_dict`) linking chemical types (e.g., Astrosilicate, Amorphous Carbon, Water Ice) to their 
+     respective refractive index files.
+   - Supports additional compositions like Tholins, Troilite, and Iron.
+
+4. **Refractive Index Calculation**:
+   - The `calc_m_val` function computes the complex refractive index (`n - i*k`) for a given chemical type.
+   - Supports porosity calculations by applying Bruggeman's rule to adjust refractive indices.
+
+5. **Precomputed Values for Common Compositions**:
+   - Computes and stores refractive indices for standard compositions like:
+     - Astrosilicate (`m_val_asi`)
+     - Amorphous Carbon (`m_val_ac`)
+     - Water Ice (`m_val_wi`)
+     - Tholins (`m_val_th`)
+     - Troilite (`m_val_tr`)
+     - Iron (`m_val_fe`)
+
+6. **Chemical Properties Dictionary**:
+   - A dictionary (`chem_dict`) associates chemical types with their refractive indices, file paths, and densities.
+   - Enables quick access to predefined material properties for modeling and simulations.
+
+7. **Flexibility and Extendibility**:
+   - Modular design allows for easy addition of new materials or scattering types.
+   - The `calc_m_val` function is compatible with both Mie and porous scattering models, making it adaptable for 
+     diverse astrophysical applications.
+"""
+
+
 import numpy as np
 from scipy import interpolate
 from scipy.ndimage.interpolation import rotate
