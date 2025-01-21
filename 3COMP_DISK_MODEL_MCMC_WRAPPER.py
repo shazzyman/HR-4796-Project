@@ -22,9 +22,6 @@ parallel processing. The key components and features include:
 5. **Data Handling and Reproducibility**:
    - Reads disk data from external files and saves intermediate results using HDF5 for further analysis.
    - Provides options to resume MCMC calculations or generate plots from saved results.
-
-This modular script is designed to support iterative modeling and analysis of debris disks, making it adaptable for
-different systems or extending its application to other astrophysical simulations.
 """
 
 # Imports
